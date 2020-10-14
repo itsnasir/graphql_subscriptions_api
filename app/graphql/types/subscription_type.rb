@@ -1,7 +1,8 @@
 module Types
   class SubscriptionType < Types::BaseObject
-    field :new_streaming_link, Types::LiveStreamingType, null: false, description: 'A new Live streaming link'
-
-    def new_streaming_link; end
+    field :new_streaming_link, Types::LiveStreamingType, null: false
+    def new_streaming_link
+      object
+    end
   end
 end
