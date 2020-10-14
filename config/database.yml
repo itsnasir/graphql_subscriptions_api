@@ -1,0 +1,19 @@
+default: &default
+  adapter:  postgresql
+  encoding: unicode
+  host:     <%= ENV.fetch("DB_HOST") %>
+  username: <%= ENV.fetch("DB_USER") %>
+  password: <%= ENV.fetch("DB_PASSWORD") %>
+  pool:     <%= ENV.fetch("RAILS_MAX_THREADS", 10) %>
+
+development:
+  <<: *default
+  database: graphql_subscription_development
+
+test:
+  <<: *default
+  database: graphql_subscription_test
+
+production:
+  <<: *default
+  database: graphql_subscription_production
