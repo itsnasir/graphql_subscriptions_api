@@ -1,8 +1,8 @@
 module Types
   class SubscriptionType < Types::BaseObject
-    field :new_streaming_link, Types::LiveStreamingType, null: false
-    def new_streaming_link
-      object
-    end
+    extend GraphQL::Subscriptions::SubscriptionRoot
+
+    field :new_streaming_link, subscription: Subscriptions::NewLiveStreamingStarted
+    field :new_comment_posted, subscription: Subscriptions::NewCommentPosted
   end
 end
