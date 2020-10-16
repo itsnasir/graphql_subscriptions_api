@@ -32,8 +32,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Mount Action Cable outside main process or domain.
-  # config.action_cable.mount_path = nil
-  config.web_socket_server_url = "wss://#{ENV.fetch('BACKEND_DOMAIN')}/cable"
+  config.action_cable.mount_path = '/cable'
   config.action_cable.url = "wss://#{ENV.fetch('BACKEND_DOMAIN')}/cable"
   config.action_cable.allowed_request_origins = [ENV.fetch('FRONTEND_DOMAIN')]
 
