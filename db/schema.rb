@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_13_100028) do
+ActiveRecord::Schema.define(version: 2020_10_15_172026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "live_streaming_id"
+    t.text "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["live_streaming_id"], name: "index_comments_on_live_streaming_id"
+  end
 
   create_table "live_streamings", force: :cascade do |t|
     t.string "url", null: false
@@ -21,4 +29,5 @@ ActiveRecord::Schema.define(version: 2020_10_13_100028) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "comments", "live_streamings"
 end

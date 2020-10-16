@@ -16,4 +16,4 @@ test:
 
 production:
   <<: *default
-  database: graphql_subscription_production
+  database: <%= ENV.fetch("DB_NAME", "graphql_subscription_production") %>

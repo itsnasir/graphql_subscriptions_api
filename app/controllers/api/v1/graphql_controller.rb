@@ -16,7 +16,6 @@ module Api
       end
 
       def execute_dev
-        debugger
         result = GraphqlSubscriptionsSchema.execute(params[:query], execute_params(params))
         render json: result
       end
