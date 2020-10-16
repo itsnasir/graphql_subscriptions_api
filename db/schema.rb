@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2020_10_15_172026) do
   enable_extension "plpgsql"
 
   create_table "comments", force: :cascade do |t|
-    t.bigint "live_streaming_id"
-    t.text "content"
+    t.bigint "live_streaming_id", null: false
+    t.text "content", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["live_streaming_id"], name: "index_comments_on_live_streaming_id"
