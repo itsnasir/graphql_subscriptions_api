@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount ActionCable.server => "/cable"
+  mount ActionCable.server => '/cable'
 
   unless Rails.env.production?
     post '/graphql_dev', to: 'api/v1/graphql#execute_dev'
