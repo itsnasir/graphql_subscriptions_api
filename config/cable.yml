@@ -10,4 +10,3 @@ test:
 
 production:
   <<: *default
-  channel_prefix: graphql_subscriptions_production

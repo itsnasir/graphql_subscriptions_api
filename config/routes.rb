@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => "/cable"
+
   unless Rails.env.production?
     post '/graphql_dev', to: 'api/v1/graphql#execute_dev'
     mount GraphiQL::Rails::Engine, at: '/graphiql', graphql_path: '/graphql_dev'
